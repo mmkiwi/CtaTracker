@@ -30,7 +30,7 @@ public partial class UnixToZonedDateTimeConverter : JsonConverter<ZonedDateTime>
     {
         if (Numeric.IsMatch(time)) // Unix time
         {
-            return Instant.FromUnixTimeSeconds(long.Parse(time)).InZone(CentralTime);
+            return Instant.FromUnixTimeMilliseconds(long.Parse(time)).InZone(CentralTime);
         }
         LocalDateTimePattern format = time.Length switch
         {
