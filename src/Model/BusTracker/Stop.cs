@@ -17,8 +17,8 @@ namespace MMKiwi.CtaTracker.Model.BusTracker;
 public record Stop(
     [property: JsonPropertyName("stpid")] StopId Id,
     [property: JsonPropertyName("stpnm")] string Name,
-    [property: JsonPropertyName("lat")] double Latitude,
-    [property: JsonPropertyName("lon")] double Longitude,
+    [property: JsonPropertyName("lat")] float Latitude,
+    [property: JsonPropertyName("lon")] float Longitude,
     [property: JsonPropertyName("dtradd")] IReadOnlyList<DetourId> DetourAdd,
     [property: JsonPropertyName("dtrrem")] IReadOnlyList<DetourId> DetourRemove,
     [property: JsonPropertyName("ada")] bool AdaAccessible

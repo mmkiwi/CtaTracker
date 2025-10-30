@@ -25,8 +25,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpTdG9wLnByb3RvGgtSb3V0ZS5wcm90byJyCgRTdG9wEgoKAmlkGAEgASgJ",
-            "EgwKBG5hbWUYAiABKAkSEAoIbGF0aXR1ZGUYAyABKAESEQoJbG9uZ2l0dWRl",
-            "GAQgASgBEhMKC2hhc19kZXRvdXJzGAUgASgIEhYKBnJvdXRlcxgGIAMoCzIG",
+            "EgwKBG5hbWUYAiABKAkSEAoIbGF0aXR1ZGUYAyABKAISEQoJbG9uZ2l0dWRl",
+            "GAQgASgCEhMKC2hhc19kZXRvdXJzGAUgASgIEhYKBnJvdXRlcxgGIAMoCzIG",
             "LlJvdXRlQiVIA6oCIE1NS2l3aS5DdGFUcmFja2VyLk1vZGVsLlByb3RvYnVm",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -115,10 +115,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     /// <summary>Field number for the "latitude" field.</summary>
     public const int LatitudeFieldNumber = 3;
-    private double latitude_;
+    private float latitude_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public double Latitude {
+    public float Latitude {
       get { return latitude_; }
       set {
         latitude_ = value;
@@ -127,10 +127,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     /// <summary>Field number for the "longitude" field.</summary>
     public const int LongitudeFieldNumber = 4;
-    private double longitude_;
+    private float longitude_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public double Longitude {
+    public float Longitude {
       get { return longitude_; }
       set {
         longitude_ = value;
@@ -177,8 +177,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
       if (Id != other.Id) return false;
       if (Name != other.Name) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Latitude, other.Latitude)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Longitude, other.Longitude)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Latitude, other.Latitude)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Longitude, other.Longitude)) return false;
       if (HasDetours != other.HasDetours) return false;
       if(!routes_.Equals(other.routes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -190,8 +190,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Latitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Latitude);
-      if (Longitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Longitude);
+      if (Latitude != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Latitude);
+      if (Longitude != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Longitude);
       if (HasDetours != false) hash ^= HasDetours.GetHashCode();
       hash ^= routes_.GetHashCode();
       if (_unknownFields != null) {
@@ -220,13 +220,13 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
-      if (Latitude != 0D) {
-        output.WriteRawTag(25);
-        output.WriteDouble(Latitude);
+      if (Latitude != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Latitude);
       }
-      if (Longitude != 0D) {
-        output.WriteRawTag(33);
-        output.WriteDouble(Longitude);
+      if (Longitude != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(Longitude);
       }
       if (HasDetours != false) {
         output.WriteRawTag(40);
@@ -251,13 +251,13 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
-      if (Latitude != 0D) {
-        output.WriteRawTag(25);
-        output.WriteDouble(Latitude);
+      if (Latitude != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Latitude);
       }
-      if (Longitude != 0D) {
-        output.WriteRawTag(33);
-        output.WriteDouble(Longitude);
+      if (Longitude != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(Longitude);
       }
       if (HasDetours != false) {
         output.WriteRawTag(40);
@@ -280,11 +280,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Latitude != 0D) {
-        size += 1 + 8;
+      if (Latitude != 0F) {
+        size += 1 + 4;
       }
-      if (Longitude != 0D) {
-        size += 1 + 8;
+      if (Longitude != 0F) {
+        size += 1 + 4;
       }
       if (HasDetours != false) {
         size += 1 + 1;
@@ -308,10 +308,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Latitude != 0D) {
+      if (other.Latitude != 0F) {
         Latitude = other.Latitude;
       }
-      if (other.Longitude != 0D) {
+      if (other.Longitude != 0F) {
         Longitude = other.Longitude;
       }
       if (other.HasDetours != false) {
@@ -345,12 +345,12 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Name = input.ReadString();
             break;
           }
-          case 25: {
-            Latitude = input.ReadDouble();
+          case 29: {
+            Latitude = input.ReadFloat();
             break;
           }
-          case 33: {
-            Longitude = input.ReadDouble();
+          case 37: {
+            Longitude = input.ReadFloat();
             break;
           }
           case 40: {
@@ -388,12 +388,12 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Name = input.ReadString();
             break;
           }
-          case 25: {
-            Latitude = input.ReadDouble();
+          case 29: {
+            Latitude = input.ReadFloat();
             break;
           }
-          case 33: {
-            Longitude = input.ReadDouble();
+          case 37: {
+            Longitude = input.ReadFloat();
             break;
           }
           case 40: {

@@ -7,7 +7,7 @@ message Route
 {
   string id = 1;
   string name = 2;
-  string color = 3;
+  uint32 color = 3;
   string designation = 4;
   
   repeated RouteDirection directions = 5;

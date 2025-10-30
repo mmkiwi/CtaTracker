@@ -5,6 +5,8 @@
 // 
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY
 
+using System.Globalization;
+
 using Microsoft.Extensions.Caching.Memory;
 
 using MMKiwi.CtaTracker.Client;
@@ -103,10 +105,11 @@ public class Controller : IDisposable
                 if (stop.Routes.FirstOrDefault(r => r.Id == routeId.Value) is not { } route)
                 {
                     var routeCache = await LoadRouteFromCache(routeId, cancellationToken);
+                    var color = UInt32.Parse(routeCache.Color.AsSpan(1), NumberStyles.HexNumber);
                     route = new Protobuf.Route()
                     {
                         Name = routeCache.Name,
-                        Color = routeCache.Color,
+                        Color = color,
                         Designation = routeCache.Designator,
                         Id = routeId.Value
                     };
@@ -131,17 +134,20 @@ public class Controller : IDisposable
         }
     }
 
-    private (RouteId, StopId, string, Protobuf.Prediction) GetResponse(BusTracker.Prediction prediction) =>
-        (prediction.Route, prediction.Stop, prediction.RouteDirection, new Protobuf.Prediction
-        {
-            IsDelayed = prediction.IsDelayed,
-            PassengerCount = Protobuf.Prediction.Types.PassengerCount.ParseFast(prediction.PassengerCount),
-            PredictedTime = prediction.PredictedTime.ToInstant().ToUnixTimeSeconds(),
-            PredictionText = prediction.PredictionText,
-            Timestamp = prediction.Timestamp.ToInstant().ToUnixTimeSeconds(),
-            StopDistance = prediction.DistanceToStop,
-            Destination = prediction.Destination
-        });
+    private (RouteId, StopId, string, Protobuf.Prediction) GetResponse(BusTracker.Prediction prediction)
+    {
+        return (prediction.Route, prediction.Stop, prediction.RouteDirection,
+            new Protobuf.Prediction
+            {
+                IsDelayed = prediction.IsDelayed,
+                PassengerCount = Protobuf.Prediction.Types.PassengerCount.ParseFast(prediction.PassengerCount),
+                PredictedTime = prediction.PredictedTime.ToInstant().ToUnixTimeSeconds(),
+                PredictionText = prediction.PredictionText,
+                Timestamp = prediction.Timestamp.ToInstant().ToUnixTimeSeconds(),
+                StopDistance = prediction.DistanceToStop,
+                Destination = prediction.Destination
+            });
+    }
 
     private async Task<BusTracker.Stop> LoadStopFromCacheAsync(StopId stopId, CancellationToken cancellationToken)
     {

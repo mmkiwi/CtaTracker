@@ -25,7 +25,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgtSb3V0ZS5wcm90bxoQUHJlZGljdGlvbi5wcm90byJqCgVSb3V0ZRIKCgJp",
-            "ZBgBIAEoCRIMCgRuYW1lGAIgASgJEg0KBWNvbG9yGAMgASgJEhMKC2Rlc2ln",
+            "ZBgBIAEoCRIMCgRuYW1lGAIgASgJEg0KBWNvbG9yGAMgASgNEhMKC2Rlc2ln",
             "bmF0aW9uGAQgASgJEiMKCmRpcmVjdGlvbnMYBSADKAsyDy5Sb3V0ZURpcmVj",
             "dGlvbiJFCg5Sb3V0ZURpcmVjdGlvbhIRCglkaXJlY3Rpb24YASABKAkSIAoL",
             "cHJlZGljdGlvbnMYAiADKAsyCy5QcmVkaWN0aW9uQiVIA6oCIE1NS2l3aS5D",
@@ -116,13 +116,13 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     /// <summary>Field number for the "color" field.</summary>
     public const int ColorFieldNumber = 3;
-    private string color_ = "";
+    private uint color_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Color {
+    public uint Color {
       get { return color_; }
       set {
-        color_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        color_ = value;
       }
     }
 
@@ -178,7 +178,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Color.Length != 0) hash ^= Color.GetHashCode();
+      if (Color != 0) hash ^= Color.GetHashCode();
       if (Designation.Length != 0) hash ^= Designation.GetHashCode();
       hash ^= directions_.GetHashCode();
       if (_unknownFields != null) {
@@ -207,9 +207,9 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
-      if (Color.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Color);
+      if (Color != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Color);
       }
       if (Designation.Length != 0) {
         output.WriteRawTag(34);
@@ -234,9 +234,9 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
-      if (Color.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Color);
+      if (Color != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Color);
       }
       if (Designation.Length != 0) {
         output.WriteRawTag(34);
@@ -259,8 +259,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Color.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Color);
+      if (Color != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Color);
       }
       if (Designation.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Designation);
@@ -284,7 +284,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Color.Length != 0) {
+      if (other.Color != 0) {
         Color = other.Color;
       }
       if (other.Designation.Length != 0) {
@@ -318,8 +318,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Name = input.ReadString();
             break;
           }
-          case 26: {
-            Color = input.ReadString();
+          case 24: {
+            Color = input.ReadUInt32();
             break;
           }
           case 34: {
@@ -357,8 +357,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Name = input.ReadString();
             break;
           }
-          case 26: {
-            Color = input.ReadString();
+          case 24: {
+            Color = input.ReadUInt32();
             break;
           }
           case 34: {
