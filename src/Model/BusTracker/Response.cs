@@ -40,12 +40,4 @@ public readonly record struct Response<T>
         result = Result;
         return Result is not null;
     }
-    
-    public bool TryGetErrors([NotNullWhen(true)] out IReadOnlyList<BusError>? errors)
-    {
-        errors = Errors;
-        return Errors is not null;
-    }
-
-    public T GetResultOrThrow() => Result ?? throw new InvalidOperationException($"Error from CTA Server:\n{string.Join('\n',Errors ?? [])}");
 }

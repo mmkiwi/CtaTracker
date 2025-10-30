@@ -325,8 +325,7 @@ public sealed class BusTrackerClient : IDisposable
 
         var errors = busTimeResponse["error"]
             .Deserialize(BusSerializer.Default.IReadOnlyListBusError) ?? [];
-        throw new InvalidOperationException("Error from CTA service:\n" +
-                                            string.Join("\n", errors.Select(e => e.Message)));
+        throw new InvalidOperationException($"Error from CTA service {uriBuilder.Uri},:\n {string.Join("\n", errors.Select(e => e.Message))}");
 
 
     }
