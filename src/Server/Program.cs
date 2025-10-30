@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 using Google.Protobuf;
 
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 
 using MMKiwi.CtaTracker.Client;
@@ -42,6 +43,11 @@ public partial class Program
         {
             app.MapOpenApi();
         }
+        
+        app.UseForwardedHeaders(new ForwardedHeadersOptions
+        {
+            ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+        });
 
         var controller = app.Services.GetRequiredService<Controller>();
 
