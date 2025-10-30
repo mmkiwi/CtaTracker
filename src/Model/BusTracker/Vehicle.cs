@@ -12,13 +12,14 @@
 
 using System.Text.Json.Serialization;
 
+using NodaTime;
+
 namespace MMKiwi.CtaTracker.Model.BusTracker;
 public record Vehicle(
     
     [property: JsonPropertyName("vid")]
     VehicleId Id,
-    [property: JsonConverter(typeof(UnixToDateTimeConverter))]
-    [property: JsonPropertyName("tmstmp")] DateTimeOffset LastUpdated,
+    [property: JsonPropertyName("tmstmp")] ZonedDateTime LastUpdated,
     [property: JsonPropertyName("lat")] double Latitude,
     [property: JsonPropertyName("lon")] double Longitude,
     [property: JsonPropertyName("hdg")] double Heading,
@@ -38,5 +39,5 @@ public record Vehicle(
     [property: JsonPropertyName("mode")] int Mode,
     [property: JsonPropertyName("psgld")] string PassengerLoad,
     [property: JsonPropertyName("stst")] int ScheduledStartTime,
-    [property: JsonPropertyName("stsd")] DateOnly ScheduledStartDate
+    [property: JsonPropertyName("stsd")] LocalDate ScheduledStartDate
 );

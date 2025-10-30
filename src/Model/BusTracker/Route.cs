@@ -20,5 +20,3 @@ public record Route(
     [property: JsonPropertyName("rtclr")] string Color,
     [property: JsonPropertyName("rtdd")] string Designator
 );
-
-public record ServerTime(DateTimeOffset Time);

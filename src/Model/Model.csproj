@@ -1,8 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
         <PackageReference Include="Google.Protobuf" />
+        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" />
         <PackageReference Include="NetEscapades.EnumGenerators" />
+        <PackageReference Include="NodaTime" />
+        <PackageReference Include="NodaTime.Serialization.SystemTextJson" />
         <PackageReference Include="Riok.Mapperly" />
         <PackageReference Include="StronglyTypedId"  />
+    </ItemGroup>
+
+    <ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" />
     </ItemGroup>
 </Project>

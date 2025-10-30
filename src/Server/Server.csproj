@@ -15,11 +15,15 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Client\Client.csproj"/>
-        
     </ItemGroup>
 
+    <ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" />
+    </ItemGroup>
+    
 </Project>

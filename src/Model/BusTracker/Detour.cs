@@ -12,6 +12,8 @@
 
 using System.Text.Json.Serialization;
 
+using NodaTime;
+
 namespace MMKiwi.CtaTracker.Model.BusTracker;
 
 public record Detour(
@@ -21,10 +23,10 @@ public record Detour(
     [property: JsonPropertyName("desc")] string Description,
     [property: JsonPropertyName("rtdirs")] IReadOnlyList<RouteDirection> RouteDirections,
     [property: JsonPropertyName("startdt")]
-    [property: JsonConverter(typeof(UnixToDateTimeConverter))]
-    DateTimeOffset StartDate,
-    [property: JsonConverter(typeof(UnixToDateTimeConverter))]
-    [property: JsonPropertyName("enddt")] DateTimeOffset EndDate
+    [property:JsonConverter(typeof(UnixToZonedDateTimeConverter))]
+    ZonedDateTime StartDate,
+    [property:JsonConverter(typeof(UnixToZonedDateTimeConverter))]
+    [property: JsonPropertyName("enddt")] ZonedDateTime EndDate
 );
 
 public record RouteDirection(

@@ -45,7 +45,7 @@ public sealed class BusTrackerClient : IDisposable
 
         return busTimeResponse is null
             ? new Response<ServerTime>([new BusError("Response was null")])
-            : new Response<ServerTime>(new ServerTime(UnixToDateTimeConverter.ToDateTime(busTimeResponse["tm"]!.GetValue<string>())));
+            : new Response<ServerTime>(new ServerTime(UnixToZonedDateTimeConverter.ToZonedDateTime(busTimeResponse["tm"]!.GetValue<string>())));
     }
 
     public async Task<Response<IReadOnlyList<Vehicle>>> GetVehicles(IEnumerable<VehicleId> vehicles,

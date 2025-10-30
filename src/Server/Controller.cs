@@ -136,9 +136,9 @@ public class Controller : IDisposable
         {
             IsDelayed = prediction.IsDelayed,
             PassengerCount = Protobuf.Prediction.Types.PassengerCount.ParseFast(prediction.PassengerCount),
-            PredictedTime = prediction.PredictedTime.ToUnix(),
+            PredictedTime = prediction.PredictedTime.ToInstant().ToUnixTimeSeconds(),
             PredictionText = prediction.PredictionText,
-            Timestamp = prediction.Timestamp.ToUnix(),
+            Timestamp = prediction.Timestamp.ToInstant().ToUnixTimeSeconds(),
             StopDistance = prediction.DistanceToStop,
             Destination = prediction.Destination
         });
@@ -182,7 +182,7 @@ public class Controller : IDisposable
         response switch
         {
             { Errors: not null } => new TimeResponse { Error = response.Errors.ToProtobuf() },
-            { Result: not null } => new TimeResponse { Result = new TimeResponse.Types.Time { Timestamp = response.Result.Time.ToUnix() } },
+            { Result: not null } => new TimeResponse { Result = new TimeResponse.Types.Time { Timestamp = response.Result.Time.ToInstant().ToUnixTimeSeconds() } },
             _ => throw InvalidOperationException.BothResultsErrors
         };
 

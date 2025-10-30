@@ -12,12 +12,14 @@
 
 using System.Text.Json.Serialization;
 
+using NodaTime;
+
 namespace MMKiwi.CtaTracker.Model.BusTracker;
 
 public record Prediction(
-    [property: JsonConverter(typeof(UnixToDateTimeConverter))]
+    [property:JsonConverter(typeof(UnixToZonedDateTimeConverter))]
     [property: JsonPropertyName("tmstmp")]
-    DateTimeOffset Timestamp,
+    ZonedDateTime Timestamp,
     [property: JsonPropertyName("typ")] string Type,
     [property: JsonPropertyName("stpnm")] string StopName,
     [property: JsonPropertyName("stpid")] StopId Stop,
@@ -27,9 +29,9 @@ public record Prediction(
     [property: JsonPropertyName("rtdd")] string RouteDesignator,
     [property: JsonPropertyName("rtdir")] string RouteDirection,
     [property: JsonPropertyName("des")] string Destination,
-    [property: JsonConverter(typeof(UnixToDateTimeConverter))]
+    [property:JsonConverter(typeof(UnixToZonedDateTimeConverter))]
     [property: JsonPropertyName("prdtm")]
-    DateTimeOffset PredictedTime,
+    ZonedDateTime PredictedTime,
     [property: JsonPropertyName("tablockid")]
     string TaBlockId,
     [property: JsonPropertyName("tatripid")]

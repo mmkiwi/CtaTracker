@@ -3,6 +3,8 @@ using MMKiwi.CtaTracker.Model.BusTracker;
 using Microsoft.Extensions.Configuration;
 using MMKiwi.CtaTracker.Model;
 
+using NodaTime;
+
 namespace MMKiwi.CtaTracker.Tests;
 
 public class BusTests
@@ -67,7 +69,7 @@ public class BusTests
         using BusTrackerClient client = new(Key);
         var result = await client.GetTime(cancellationToken);
         await Assert.That(result.TryGetResult(out var resultValue)).IsTrue();
-        await Assert.That((resultValue!.Time - DateTimeOffset.Now)!.Duration()).IsLessThan(TimeSpan.FromSeconds(10));
+        await Assert.That((resultValue!.Time - ZonedDateTime.FromDateTimeOffset(DateTimeOffset.Now))!.ToTimeSpan()).IsLessThan(TimeSpan.FromSeconds(10));
     }
 
     [Test]

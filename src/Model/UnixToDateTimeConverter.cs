@@ -17,13 +17,14 @@ using System.Text.RegularExpressions;
 
 namespace MMKiwi.CtaTracker.Model;
 
+[Obsolete]
 public partial class UnixToDateTimeConverter : JsonConverter<DateTimeOffset>
 {
     public override DateTimeOffset Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         return ToDateTime(reader.GetString());
     }
-
+    
     public static DateTimeOffset ToDateTime(ReadOnlySpan<char> time)
     {
         var ct = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
