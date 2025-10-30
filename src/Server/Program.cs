@@ -55,7 +55,7 @@ public partial class Program
 
         try
         {
-            var bus = app.MapGroup("/bus");
+            var bus = app.MapGroup("/tracker");
             bus.MapGet("/serverTime", controller.ServerTime)
                 .WithName("Get Server Time");
             bus.MapGet("/prediction", controller.GetPredictions).WithName("Get Routes");
