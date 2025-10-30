@@ -7,6 +7,7 @@
         <InvariantGlobalization>true</InvariantGlobalization>
         <PublishAot>true</PublishAot>
         <UserSecretsId>291215af-80ad-422d-aa43-b1b0b42debc6</UserSecretsId>
+        <AssemblyName>ctatrackerserver</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
