@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+import public "ErrorList.proto";
+option optimize_for = LITE_RUNTIME;
+option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+
+message Detour
+{
+  bytes id = 1;
+  int32 version = 2;
+  int32 state = 3;
+  string description = 4;
+  repeated RouteDirection route_directions = 5;
+  int64 start_date = 6;
+  int64 end_date = 7;
+}
+
+message RouteDirection
+{
+  string route = 1;
+  string direction = 2;
+}
+
+message  DetourResponse
+{
+  oneof response {
+    Detour result = 1;
+    ErrorList error = 2;
+  }
+}

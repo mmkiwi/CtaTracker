@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+import public "ErrorList.proto";
+option optimize_for = LITE_RUNTIME;
+option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+
+message Pattern
+{
+  int32 id = 1;
+  double length = 2;
+  string direction = 3;
+  repeated Point points = 4;
+  message Point
+  {
+    int32 sequence = 1;
+    double latitude = 2;
+    double longitude = 3;
+    string type = 4;
+    double point_distance =5;
+    string stop_id =6;
+    string stop_name = 7;
+  }
+}
+
+message  PatternResponse
+{
+  oneof response {
+    Pattern result = 1;
+    ErrorList error = 2;
+  }
+}

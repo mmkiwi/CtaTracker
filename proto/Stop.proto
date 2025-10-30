@@ -1,0 +1,23 @@
+﻿syntax = "proto3";
+import public "ErrorList.proto";
+option optimize_for = LITE_RUNTIME;
+option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+
+message Stop
+{
+  string id = 1;
+  string Name = 2;
+  double Latitude = 3;
+  double Longitude = 4;
+  repeated bytes detour_add = 5;
+  repeated bytes detour_remove = 6;
+  bool ada_accessible = 7;
+}
+
+message  StopResponse
+{
+  oneof response {
+    Stop result = 1;
+    ErrorList error = 2;
+  }
+}

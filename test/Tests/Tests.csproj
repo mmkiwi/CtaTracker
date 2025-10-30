@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <UserSecretsId>MMKiwi.CtaTracker-77d93955-c08f-4e9b-9931-1d7df76e8b8f</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" />
+        <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
+        <PackageReference Include="TUnit" />
+        <ProjectReference Include="..\..\src\Client\Client.csproj" />
+    </ItemGroup>
+
+</Project>

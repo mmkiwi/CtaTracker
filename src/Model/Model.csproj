@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" />
+        <PackageReference Include="NetEscapades.EnumGenerators" />
+        <PackageReference Include="Riok.Mapperly" />
+        <PackageReference Include="StronglyTypedId"  />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+<Project>
+    <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAotComatible>true</IsAotComatible>
+        <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
+        <RootNamespace>MMKiwi.CtaTracker.$(MSBuildProjectName)</RootNamespace>
+    </PropertyGroup>
+</Project>

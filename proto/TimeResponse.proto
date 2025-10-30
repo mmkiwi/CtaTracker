@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+import public "ErrorList.proto";
+option optimize_for = LITE_RUNTIME;
+option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+
+message  TimeResponse
+{
+  oneof response {
+    int64 result = 1;
+    ErrorList error = 2;
+  }
+}
