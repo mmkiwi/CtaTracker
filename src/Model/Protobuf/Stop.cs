@@ -24,18 +24,15 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     static StopReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpTdG9wLnByb3RvGg9FcnJvckxpc3QucHJvdG8iiAEKBFN0b3ASCgoCaWQY",
-            "ASABKAkSDAoETmFtZRgCIAEoCRIQCghMYXRpdHVkZRgDIAEoARIRCglMb25n",
-            "aXR1ZGUYBCABKAESEgoKZGV0b3VyX2FkZBgFIAMoDBIVCg1kZXRvdXJfcmVt",
-            "b3ZlGAYgAygMEhYKDmFkYV9hY2Nlc3NpYmxlGAcgASgIIlAKDFN0b3BSZXNw",
-            "b25zZRIXCgZyZXN1bHQYASABKAsyBS5TdG9wSAASGwoFZXJyb3IYAiABKAsy",
-            "Ci5FcnJvckxpc3RIAEIKCghyZXNwb25zZUIlSAOqAiBNTUtpd2kuQ3RhVHJh",
-            "Y2tlci5Nb2RlbC5Qcm90b2J1ZlAAYgZwcm90bzM="));
+            "CgpTdG9wLnByb3RvGgtSb3V0ZS5wcm90byJyCgRTdG9wEgoKAmlkGAEgASgJ",
+            "EgwKBG5hbWUYAiABKAkSEAoIbGF0aXR1ZGUYAyABKAESEQoJbG9uZ2l0dWRl",
+            "GAQgASgBEhMKC2hhc19kZXRvdXJzGAUgASgIEhYKBnJvdXRlcxgGIAMoCzIG",
+            "LlJvdXRlQiVIA6oCIE1NS2l3aS5DdGFUcmFja2VyLk1vZGVsLlByb3RvYnVm",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::MMKiwi.CtaTracker.Model.Protobuf.ErrorListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::MMKiwi.CtaTracker.Model.Protobuf.RouteReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.Stop), global::MMKiwi.CtaTracker.Model.Protobuf.Stop.Parser, new[]{ "Id", "Name", "Latitude", "Longitude", "DetourAdd", "DetourRemove", "AdaAccessible" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.StopResponse), global::MMKiwi.CtaTracker.Model.Protobuf.StopResponse.Parser, new[]{ "Result", "Error" }, new[]{ "Response" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.Stop), global::MMKiwi.CtaTracker.Model.Protobuf.Stop.Parser, new[]{ "Id", "Name", "Latitude", "Longitude", "HasDetours", "Routes" }, null, null, null, null)
           }));
     }
     #endregion
@@ -81,9 +78,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       name_ = other.name_;
       latitude_ = other.latitude_;
       longitude_ = other.longitude_;
-      detourAdd_ = other.detourAdd_.Clone();
-      detourRemove_ = other.detourRemove_.Clone();
-      adaAccessible_ = other.adaAccessible_;
+      hasDetours_ = other.hasDetours_;
+      routes_ = other.routes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -105,7 +101,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Name" field.</summary>
+    /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 2;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -117,7 +113,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Latitude" field.</summary>
+    /// <summary>Field number for the "latitude" field.</summary>
     public const int LatitudeFieldNumber = 3;
     private double latitude_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -129,7 +125,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Longitude" field.</summary>
+    /// <summary>Field number for the "longitude" field.</summary>
     public const int LongitudeFieldNumber = 4;
     private double longitude_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -141,38 +137,27 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "detour_add" field.</summary>
-    public const int DetourAddFieldNumber = 5;
-    private static readonly pb::FieldCodec<pb::ByteString> _repeated_detourAdd_codec
-        = pb::FieldCodec.ForBytes(42);
-    private readonly pbc::RepeatedField<pb::ByteString> detourAdd_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>Field number for the "has_detours" field.</summary>
+    public const int HasDetoursFieldNumber = 5;
+    private bool hasDetours_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<pb::ByteString> DetourAdd {
-      get { return detourAdd_; }
-    }
-
-    /// <summary>Field number for the "detour_remove" field.</summary>
-    public const int DetourRemoveFieldNumber = 6;
-    private static readonly pb::FieldCodec<pb::ByteString> _repeated_detourRemove_codec
-        = pb::FieldCodec.ForBytes(50);
-    private readonly pbc::RepeatedField<pb::ByteString> detourRemove_ = new pbc::RepeatedField<pb::ByteString>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<pb::ByteString> DetourRemove {
-      get { return detourRemove_; }
-    }
-
-    /// <summary>Field number for the "ada_accessible" field.</summary>
-    public const int AdaAccessibleFieldNumber = 7;
-    private bool adaAccessible_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool AdaAccessible {
-      get { return adaAccessible_; }
+    public bool HasDetours {
+      get { return hasDetours_; }
       set {
-        adaAccessible_ = value;
+        hasDetours_ = value;
       }
+    }
+
+    /// <summary>Field number for the "routes" field.</summary>
+    public const int RoutesFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::MMKiwi.CtaTracker.Model.Protobuf.Route> _repeated_routes_codec
+        = pb::FieldCodec.ForMessage(50, global::MMKiwi.CtaTracker.Model.Protobuf.Route.Parser);
+    private readonly pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route> routes_ = new pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route> Routes {
+      get { return routes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -194,9 +179,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Name != other.Name) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Latitude, other.Latitude)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Longitude, other.Longitude)) return false;
-      if(!detourAdd_.Equals(other.detourAdd_)) return false;
-      if(!detourRemove_.Equals(other.detourRemove_)) return false;
-      if (AdaAccessible != other.AdaAccessible) return false;
+      if (HasDetours != other.HasDetours) return false;
+      if(!routes_.Equals(other.routes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -208,9 +192,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Latitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Latitude);
       if (Longitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Longitude);
-      hash ^= detourAdd_.GetHashCode();
-      hash ^= detourRemove_.GetHashCode();
-      if (AdaAccessible != false) hash ^= AdaAccessible.GetHashCode();
+      if (HasDetours != false) hash ^= HasDetours.GetHashCode();
+      hash ^= routes_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -245,12 +228,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(33);
         output.WriteDouble(Longitude);
       }
-      detourAdd_.WriteTo(output, _repeated_detourAdd_codec);
-      detourRemove_.WriteTo(output, _repeated_detourRemove_codec);
-      if (AdaAccessible != false) {
-        output.WriteRawTag(56);
-        output.WriteBool(AdaAccessible);
+      if (HasDetours != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(HasDetours);
       }
+      routes_.WriteTo(output, _repeated_routes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -277,12 +259,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(33);
         output.WriteDouble(Longitude);
       }
-      detourAdd_.WriteTo(ref output, _repeated_detourAdd_codec);
-      detourRemove_.WriteTo(ref output, _repeated_detourRemove_codec);
-      if (AdaAccessible != false) {
-        output.WriteRawTag(56);
-        output.WriteBool(AdaAccessible);
+      if (HasDetours != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(HasDetours);
       }
+      routes_.WriteTo(ref output, _repeated_routes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -305,11 +286,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Longitude != 0D) {
         size += 1 + 8;
       }
-      size += detourAdd_.CalculateSize(_repeated_detourAdd_codec);
-      size += detourRemove_.CalculateSize(_repeated_detourRemove_codec);
-      if (AdaAccessible != false) {
+      if (HasDetours != false) {
         size += 1 + 1;
       }
+      size += routes_.CalculateSize(_repeated_routes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -334,11 +314,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (other.Longitude != 0D) {
         Longitude = other.Longitude;
       }
-      detourAdd_.Add(other.detourAdd_);
-      detourRemove_.Add(other.detourRemove_);
-      if (other.AdaAccessible != false) {
-        AdaAccessible = other.AdaAccessible;
+      if (other.HasDetours != false) {
+        HasDetours = other.HasDetours;
       }
+      routes_.Add(other.routes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -374,16 +353,12 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Longitude = input.ReadDouble();
             break;
           }
-          case 42: {
-            detourAdd_.AddEntriesFrom(input, _repeated_detourAdd_codec);
+          case 40: {
+            HasDetours = input.ReadBool();
             break;
           }
           case 50: {
-            detourRemove_.AddEntriesFrom(input, _repeated_detourRemove_codec);
-            break;
-          }
-          case 56: {
-            AdaAccessible = input.ReadBool();
+            routes_.AddEntriesFrom(input, _repeated_routes_codec);
             break;
           }
         }
@@ -421,310 +396,12 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             Longitude = input.ReadDouble();
             break;
           }
-          case 42: {
-            detourAdd_.AddEntriesFrom(ref input, _repeated_detourAdd_codec);
+          case 40: {
+            HasDetours = input.ReadBool();
             break;
           }
           case 50: {
-            detourRemove_.AddEntriesFrom(ref input, _repeated_detourRemove_codec);
-            break;
-          }
-          case 56: {
-            AdaAccessible = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class StopResponse : pb::IMessage<StopResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<StopResponse> _parser = new pb::MessageParser<StopResponse>(() => new StopResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<StopResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::MMKiwi.CtaTracker.Model.Protobuf.StopReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public StopResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public StopResponse(StopResponse other) : this() {
-      switch (other.ResponseCase) {
-        case ResponseOneofCase.Result:
-          Result = other.Result.Clone();
-          break;
-        case ResponseOneofCase.Error:
-          Error = other.Error.Clone();
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public StopResponse Clone() {
-      return new StopResponse(this);
-    }
-
-    /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 1;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::MMKiwi.CtaTracker.Model.Protobuf.Stop Result {
-      get { return responseCase_ == ResponseOneofCase.Result ? (global::MMKiwi.CtaTracker.Model.Protobuf.Stop) response_ : null; }
-      set {
-        response_ = value;
-        responseCase_ = value == null ? ResponseOneofCase.None : ResponseOneofCase.Result;
-      }
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList Error {
-      get { return responseCase_ == ResponseOneofCase.Error ? (global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList) response_ : null; }
-      set {
-        response_ = value;
-        responseCase_ = value == null ? ResponseOneofCase.None : ResponseOneofCase.Error;
-      }
-    }
-
-    private object response_;
-    /// <summary>Enum of possible cases for the "response" oneof.</summary>
-    public enum ResponseOneofCase {
-      None = 0,
-      Result = 1,
-      Error = 2,
-    }
-    private ResponseOneofCase responseCase_ = ResponseOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ResponseOneofCase ResponseCase {
-      get { return responseCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearResponse() {
-      responseCase_ = ResponseOneofCase.None;
-      response_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as StopResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(StopResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Result, other.Result)) return false;
-      if (!object.Equals(Error, other.Error)) return false;
-      if (ResponseCase != other.ResponseCase) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (responseCase_ == ResponseOneofCase.Result) hash ^= Result.GetHashCode();
-      if (responseCase_ == ResponseOneofCase.Error) hash ^= Error.GetHashCode();
-      hash ^= (int) responseCase_;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (responseCase_ == ResponseOneofCase.Result) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Result);
-      }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (responseCase_ == ResponseOneofCase.Result) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Result);
-      }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (responseCase_ == ResponseOneofCase.Result) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
-      }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(StopResponse other) {
-      if (other == null) {
-        return;
-      }
-      switch (other.ResponseCase) {
-        case ResponseOneofCase.Result:
-          if (Result == null) {
-            Result = new global::MMKiwi.CtaTracker.Model.Protobuf.Stop();
-          }
-          Result.MergeFrom(other.Result);
-          break;
-        case ResponseOneofCase.Error:
-          if (Error == null) {
-            Error = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-          }
-          Error.MergeFrom(other.Error);
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.Stop subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.Stop();
-            if (responseCase_ == ResponseOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
-          case 18: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-            if (responseCase_ == ResponseOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.Stop subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.Stop();
-            if (responseCase_ == ResponseOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
-          case 18: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-            if (responseCase_ == ResponseOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
+            routes_.AddEntriesFrom(ref input, _repeated_routes_codec);
             break;
           }
         }

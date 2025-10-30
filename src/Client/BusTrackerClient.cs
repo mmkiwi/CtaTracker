@@ -340,7 +340,7 @@ public sealed class BusTrackerClient : IDisposable
 
         queryString.Add("key", Key);
         queryString.Add("format", "json");
-        queryString.Add("stpid", string.Join(",", stops));
+        queryString.Add("stpid", string.Join(",", stops.Distinct()));
         queryString.Add("unixTime", "true");
 
         if (routes != null)

@@ -5,16 +5,12 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/proto/">
-    <File Path="proto\TimeResponse.proto" />
-    <File Path="proto\Vehicle.proto" />
-    <File Path="proto\Stop.proto" />
-    <File Path="proto\Locale.proto" />
-    <File Path="proto\Detour.proto" />
-    <File Path="proto\Direction.proto" />
-    <File Path="proto\Pattern.proto" />
     <File Path="proto\Prediction.proto" />
+    <File Path="proto\Stop.proto" />
     <File Path="proto\Route.proto" />
+    <File Path="proto\Time.proto" />
     <File Path="proto\ErrorList.proto" />
+    <File Path="proto\PredictionResponse.proto" />
   </Folder>
   <Folder Name="/SolutionItems/">
     <File Path=".gitignore" />

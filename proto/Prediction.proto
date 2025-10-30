@@ -1,46 +1,30 @@
 ﻿syntax = "proto3";
-import public "ErrorList.proto";
 option optimize_for = LITE_RUNTIME;
 option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
 
 message Prediction
 {
   int64 timestamp = 1;
-  string type = 2;
-  string stop_name = 3;
-  string stop_id = 4;
-  string vehicle_id = 5;
-  int32 distance_to_stop = 6;
-  string route = 7;
-  string route_designator = 8;
-  string route_direction = 9;
-  string destination = 10;
-  int64 predicted_time = 11;
-  string ta_block_id = 12;
-  string ta_trip_id = 13;
-  string orig_ta_trip_no = 14;
-  bool is_delayed = 15;
-  int32 dyn_action_type = 16;
-  string prediction_text = 17;
-  string zone = 18;
-  string pass_count = 19;
-  int32 scheduled_start = 20;
-  int64 scheduled_start_date = 31;
-  FlagStopValues flag_stop = 32;
-
-  enum FlagStopValues
+  Type type = 2;
+  bool is_delayed = 3;
+  int64 predicted_time = 4;
+  string prediction_text = 5;
+  int32 stop_distance = 6;
+  PassengerCount passenger_count = 7;
+  string destination = 8;
+  
+  enum Type
   {
-    normal = 0;
-    undefined = -1;
-    pickup_and_discharge = 1;
-    only_discharge = 2;
+    Unknown = 0;
+    Arrival = 1;
+    Departure = 2;
   }
-}
-
-message  PredictionResponse
-{
-  oneof response {
-    Prediction result = 1;
-    ErrorList error = 2;
+  
+  enum PassengerCount
+  {
+    NotApplicable = 0;
+    Full = 1;
+    HalfEmpty = 2;
+    Empty = 3;
   }
 }

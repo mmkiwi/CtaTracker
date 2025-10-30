@@ -1,12 +1,18 @@
 ﻿syntax = "proto3";
-import public "ErrorList.proto";
 option optimize_for = LITE_RUNTIME;
 option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+import "ErrorList.proto";
+import "Stop.proto";
 
-message  TimeResponse
+message PredictionResponse
 {
   oneof response {
-    int64 result = 1;
+    RouteList result = 1;
     ErrorList error = 2;
   }
+  message RouteList
+  {
+    repeated Stop stops = 1;
+  }
+
 }

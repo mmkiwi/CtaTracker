@@ -1,18 +1,18 @@
 ﻿syntax = "proto3";
-import public "ErrorList.proto";
 option optimize_for = LITE_RUNTIME;
 option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
 
-message Locale
-{
-  string Code = 1;
-  string Name = 2;
-}
+import "ErrorList.proto";
 
-message  LocaleResponse
+message TimeResponse
 {
   oneof response {
-    Locale result = 1;
+    Time result = 1;
     ErrorList error = 2;
+  }
+  
+  message Time
+  {
+    int64 timestamp = 1;
   }
 }

@@ -1,6 +1,7 @@
-option optimize_for = LITE_RUNTIME;
+﻿option optimize_for = LITE_RUNTIME;
 option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+
 message ErrorList
 {
-    repeated string message = 1;
+  repeated string message = 1;
 }

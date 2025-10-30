@@ -1,25 +1,20 @@
 ﻿syntax = "proto3";
-import public "ErrorList.proto";
 option optimize_for = LITE_RUNTIME;
 option csharp_namespace = "MMKiwi.CtaTracker.Model.Protobuf";
+import "Prediction.proto";
 
 message Route
 {
-  string route_id = 1;
+  string id = 1;
   string name = 2;
   string color = 3;
-  string designator = 4;
+  string designation = 4;
+  
+  repeated RouteDirection directions = 5;
 }
 
-message  RouteResponse
+message RouteDirection
 {
-  oneof response {
-    RouteList result = 1;
-    ErrorList error = 2;
-  }
-  
-  message RouteList
-  {
-    repeated Route routes = 1;
-  }
+  string direction = 1;
+  repeated Prediction predictions = 2;
 }

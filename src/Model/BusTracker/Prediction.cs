@@ -20,7 +20,7 @@ public record Prediction(
     DateTimeOffset Timestamp,
     [property: JsonPropertyName("typ")] string Type,
     [property: JsonPropertyName("stpnm")] string StopName,
-    [property: JsonPropertyName("stpid")] StopId StopId,
+    [property: JsonPropertyName("stpid")] StopId Stop,
     [property: JsonPropertyName("vid")] VehicleId VehicleId,
     [property: JsonPropertyName("dstp")] int DistanceToStop,
     [property: JsonPropertyName("rt")] RouteId Route,
@@ -41,7 +41,7 @@ public record Prediction(
     [property: JsonPropertyName("prdctdn")]
     string PredictionText,
     [property: JsonPropertyName("zone")] string Zone,
-    [property: JsonPropertyName("psgld")] string PassCount,
+    [property: JsonPropertyName("psgld")] string PassengerCount,
     [property: JsonPropertyName("stst")] int ScheduledStart,
     [property: JsonPropertyName("stsd")] DateOnly ScheduledStartDate,
     [property: JsonPropertyName("flagstop")]

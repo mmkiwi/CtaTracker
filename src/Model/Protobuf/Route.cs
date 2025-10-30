@@ -24,18 +24,17 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     static RouteReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgtSb3V0ZS5wcm90bxoPRXJyb3JMaXN0LnByb3RvIkoKBVJvdXRlEhAKCHJv",
-            "dXRlX2lkGAEgASgJEgwKBG5hbWUYAiABKAkSDQoFY29sb3IYAyABKAkSEgoK",
-            "ZGVzaWduYXRvchgEIAEoCSKJAQoNUm91dGVSZXNwb25zZRIqCgZyZXN1bHQY",
-            "ASABKAsyGC5Sb3V0ZVJlc3BvbnNlLlJvdXRlTGlzdEgAEhsKBWVycm9yGAIg",
-            "ASgLMgouRXJyb3JMaXN0SAAaIwoJUm91dGVMaXN0EhYKBnJvdXRlcxgBIAMo",
-            "CzIGLlJvdXRlQgoKCHJlc3BvbnNlQiVIA6oCIE1NS2l3aS5DdGFUcmFja2Vy",
-            "Lk1vZGVsLlByb3RvYnVmUABiBnByb3RvMw=="));
+            "CgtSb3V0ZS5wcm90bxoQUHJlZGljdGlvbi5wcm90byJqCgVSb3V0ZRIKCgJp",
+            "ZBgBIAEoCRIMCgRuYW1lGAIgASgJEg0KBWNvbG9yGAMgASgJEhMKC2Rlc2ln",
+            "bmF0aW9uGAQgASgJEiMKCmRpcmVjdGlvbnMYBSADKAsyDy5Sb3V0ZURpcmVj",
+            "dGlvbiJFCg5Sb3V0ZURpcmVjdGlvbhIRCglkaXJlY3Rpb24YASABKAkSIAoL",
+            "cHJlZGljdGlvbnMYAiADKAsyCy5QcmVkaWN0aW9uQiVIA6oCIE1NS2l3aS5D",
+            "dGFUcmFja2VyLk1vZGVsLlByb3RvYnVmYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::MMKiwi.CtaTracker.Model.Protobuf.ErrorListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::MMKiwi.CtaTracker.Model.Protobuf.PredictionReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.Route), global::MMKiwi.CtaTracker.Model.Protobuf.Route.Parser, new[]{ "RouteId", "Name", "Color", "Designator" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse), global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Parser, new[]{ "Result", "Error" }, new[]{ "Response" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList), global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList.Parser, new[]{ "Routes" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.Route), global::MMKiwi.CtaTracker.Model.Protobuf.Route.Parser, new[]{ "Id", "Name", "Color", "Designation", "Directions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection), global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection.Parser, new[]{ "Direction", "Predictions" }, null, null, null, null)
           }));
     }
     #endregion
@@ -77,10 +76,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Route(Route other) : this() {
-      routeId_ = other.routeId_;
+      id_ = other.id_;
       name_ = other.name_;
       color_ = other.color_;
-      designator_ = other.designator_;
+      designation_ = other.designation_;
+      directions_ = other.directions_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -90,15 +90,15 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       return new Route(this);
     }
 
-    /// <summary>Field number for the "route_id" field.</summary>
-    public const int RouteIdFieldNumber = 1;
-    private string routeId_ = "";
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private string id_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string RouteId {
-      get { return routeId_; }
+    public string Id {
+      get { return id_; }
       set {
-        routeId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -126,16 +126,27 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "designator" field.</summary>
-    public const int DesignatorFieldNumber = 4;
-    private string designator_ = "";
+    /// <summary>Field number for the "designation" field.</summary>
+    public const int DesignationFieldNumber = 4;
+    private string designation_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Designator {
-      get { return designator_; }
+    public string Designation {
+      get { return designation_; }
       set {
-        designator_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        designation_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+
+    /// <summary>Field number for the "directions" field.</summary>
+    public const int DirectionsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection> _repeated_directions_codec
+        = pb::FieldCodec.ForMessage(42, global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection.Parser);
+    private readonly pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection> directions_ = new pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.RouteDirection> Directions {
+      get { return directions_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -153,10 +164,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (RouteId != other.RouteId) return false;
+      if (Id != other.Id) return false;
       if (Name != other.Name) return false;
       if (Color != other.Color) return false;
-      if (Designator != other.Designator) return false;
+      if (Designation != other.Designation) return false;
+      if(!directions_.Equals(other.directions_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -164,10 +176,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (RouteId.Length != 0) hash ^= RouteId.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Color.Length != 0) hash ^= Color.GetHashCode();
-      if (Designator.Length != 0) hash ^= Designator.GetHashCode();
+      if (Designation.Length != 0) hash ^= Designation.GetHashCode();
+      hash ^= directions_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -186,9 +199,9 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (RouteId.Length != 0) {
+      if (Id.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(RouteId);
+        output.WriteString(Id);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
@@ -198,10 +211,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(26);
         output.WriteString(Color);
       }
-      if (Designator.Length != 0) {
+      if (Designation.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(Designator);
+        output.WriteString(Designation);
       }
+      directions_.WriteTo(output, _repeated_directions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -212,9 +226,9 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (RouteId.Length != 0) {
+      if (Id.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(RouteId);
+        output.WriteString(Id);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
@@ -224,10 +238,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
         output.WriteRawTag(26);
         output.WriteString(Color);
       }
-      if (Designator.Length != 0) {
+      if (Designation.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(Designator);
+        output.WriteString(Designation);
       }
+      directions_.WriteTo(ref output, _repeated_directions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -238,8 +253,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (RouteId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RouteId);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -247,9 +262,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (Color.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Color);
       }
-      if (Designator.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Designator);
+      if (Designation.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Designation);
       }
+      size += directions_.CalculateSize(_repeated_directions_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -262,8 +278,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (other == null) {
         return;
       }
-      if (other.RouteId.Length != 0) {
-        RouteId = other.RouteId;
+      if (other.Id.Length != 0) {
+        Id = other.Id;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -271,9 +287,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
       if (other.Color.Length != 0) {
         Color = other.Color;
       }
-      if (other.Designator.Length != 0) {
-        Designator = other.Designator;
+      if (other.Designation.Length != 0) {
+        Designation = other.Designation;
       }
+      directions_.Add(other.directions_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -294,7 +311,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            RouteId = input.ReadString();
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -306,7 +323,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             break;
           }
           case 34: {
-            Designator = input.ReadString();
+            Designation = input.ReadString();
+            break;
+          }
+          case 42: {
+            directions_.AddEntriesFrom(input, _repeated_directions_codec);
             break;
           }
         }
@@ -329,7 +350,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            RouteId = input.ReadString();
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -341,7 +362,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             break;
           }
           case 34: {
-            Designator = input.ReadString();
+            Designation = input.ReadString();
+            break;
+          }
+          case 42: {
+            directions_.AddEntriesFrom(ref input, _repeated_directions_codec);
             break;
           }
         }
@@ -352,16 +377,16 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class RouteResponse : pb::IMessage<RouteResponse>
+  public sealed partial class RouteDirection : pb::IMessage<RouteDirection>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<RouteResponse> _parser = new pb::MessageParser<RouteResponse>(() => new RouteResponse());
+    private static readonly pb::MessageParser<RouteDirection> _parser = new pb::MessageParser<RouteDirection>(() => new RouteDirection());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<RouteResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<RouteDirection> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -377,7 +402,7 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RouteResponse() {
+    public RouteDirection() {
       OnConstruction();
     }
 
@@ -385,88 +410,58 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RouteResponse(RouteResponse other) : this() {
-      switch (other.ResponseCase) {
-        case ResponseOneofCase.Result:
-          Result = other.Result.Clone();
-          break;
-        case ResponseOneofCase.Error:
-          Error = other.Error.Clone();
-          break;
-      }
-
+    public RouteDirection(RouteDirection other) : this() {
+      direction_ = other.direction_;
+      predictions_ = other.predictions_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RouteResponse Clone() {
-      return new RouteResponse(this);
+    public RouteDirection Clone() {
+      return new RouteDirection(this);
     }
 
-    /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 1;
+    /// <summary>Field number for the "direction" field.</summary>
+    public const int DirectionFieldNumber = 1;
+    private string direction_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList Result {
-      get { return responseCase_ == ResponseOneofCase.Result ? (global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList) response_ : null; }
+    public string Direction {
+      get { return direction_; }
       set {
-        response_ = value;
-        responseCase_ = value == null ? ResponseOneofCase.None : ResponseOneofCase.Result;
+        direction_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 2;
+    /// <summary>Field number for the "predictions" field.</summary>
+    public const int PredictionsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::MMKiwi.CtaTracker.Model.Protobuf.Prediction> _repeated_predictions_codec
+        = pb::FieldCodec.ForMessage(18, global::MMKiwi.CtaTracker.Model.Protobuf.Prediction.Parser);
+    private readonly pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Prediction> predictions_ = new pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Prediction>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList Error {
-      get { return responseCase_ == ResponseOneofCase.Error ? (global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList) response_ : null; }
-      set {
-        response_ = value;
-        responseCase_ = value == null ? ResponseOneofCase.None : ResponseOneofCase.Error;
-      }
-    }
-
-    private object response_;
-    /// <summary>Enum of possible cases for the "response" oneof.</summary>
-    public enum ResponseOneofCase {
-      None = 0,
-      Result = 1,
-      Error = 2,
-    }
-    private ResponseOneofCase responseCase_ = ResponseOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ResponseOneofCase ResponseCase {
-      get { return responseCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearResponse() {
-      responseCase_ = ResponseOneofCase.None;
-      response_ = null;
+    public pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Prediction> Predictions {
+      get { return predictions_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as RouteResponse);
+      return Equals(other as RouteDirection);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(RouteResponse other) {
+    public bool Equals(RouteDirection other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Result, other.Result)) return false;
-      if (!object.Equals(Error, other.Error)) return false;
-      if (ResponseCase != other.ResponseCase) return false;
+      if (Direction != other.Direction) return false;
+      if(!predictions_.Equals(other.predictions_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -474,9 +469,8 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (responseCase_ == ResponseOneofCase.Result) hash ^= Result.GetHashCode();
-      if (responseCase_ == ResponseOneofCase.Error) hash ^= Error.GetHashCode();
-      hash ^= (int) responseCase_;
+      if (Direction.Length != 0) hash ^= Direction.GetHashCode();
+      hash ^= predictions_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -495,14 +489,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (responseCase_ == ResponseOneofCase.Result) {
+      if (Direction.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteMessage(Result);
+        output.WriteString(Direction);
       }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Error);
-      }
+      predictions_.WriteTo(output, _repeated_predictions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -513,14 +504,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (responseCase_ == ResponseOneofCase.Result) {
+      if (Direction.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteMessage(Result);
+        output.WriteString(Direction);
       }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Error);
-      }
+      predictions_.WriteTo(ref output, _repeated_predictions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -531,12 +519,10 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (responseCase_ == ResponseOneofCase.Result) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      if (Direction.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Direction);
       }
-      if (responseCase_ == ResponseOneofCase.Error) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
-      }
+      size += predictions_.CalculateSize(_repeated_predictions_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -545,25 +531,14 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(RouteResponse other) {
+    public void MergeFrom(RouteDirection other) {
       if (other == null) {
         return;
       }
-      switch (other.ResponseCase) {
-        case ResponseOneofCase.Result:
-          if (Result == null) {
-            Result = new global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList();
-          }
-          Result.MergeFrom(other.Result);
-          break;
-        case ResponseOneofCase.Error:
-          if (Error == null) {
-            Error = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-          }
-          Error.MergeFrom(other.Error);
-          break;
+      if (other.Direction.Length != 0) {
+        Direction = other.Direction;
       }
-
+      predictions_.Add(other.predictions_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -584,21 +559,11 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList();
-            if (responseCase_ == ResponseOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
+            Direction = input.ReadString();
             break;
           }
           case 18: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-            if (responseCase_ == ResponseOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
+            predictions_.AddEntriesFrom(input, _repeated_predictions_codec);
             break;
           }
         }
@@ -621,222 +586,17 @@ namespace MMKiwi.CtaTracker.Model.Protobuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Types.RouteList();
-            if (responseCase_ == ResponseOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
+            Direction = input.ReadString();
             break;
           }
           case 18: {
-            global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList subBuilder = new global::MMKiwi.CtaTracker.Model.Protobuf.ErrorList();
-            if (responseCase_ == ResponseOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
+            predictions_.AddEntriesFrom(ref input, _repeated_predictions_codec);
             break;
           }
         }
       }
     }
     #endif
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the RouteResponse message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static partial class Types {
-      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-      public sealed partial class RouteList : pb::IMessage<RouteList>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<RouteList> _parser = new pb::MessageParser<RouteList>(() => new RouteList());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<RouteList> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::MMKiwi.CtaTracker.Model.Protobuf.RouteResponse.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public RouteList() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public RouteList(RouteList other) : this() {
-          routes_ = other.routes_.Clone();
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public RouteList Clone() {
-          return new RouteList(this);
-        }
-
-        /// <summary>Field number for the "routes" field.</summary>
-        public const int RoutesFieldNumber = 1;
-        private static readonly pb::FieldCodec<global::MMKiwi.CtaTracker.Model.Protobuf.Route> _repeated_routes_codec
-            = pb::FieldCodec.ForMessage(10, global::MMKiwi.CtaTracker.Model.Protobuf.Route.Parser);
-        private readonly pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route> routes_ = new pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route>();
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public pbc::RepeatedField<global::MMKiwi.CtaTracker.Model.Protobuf.Route> Routes {
-          get { return routes_; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as RouteList);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(RouteList other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if(!routes_.Equals(other.routes_)) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          hash ^= routes_.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          routes_.WriteTo(output, _repeated_routes_codec);
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          routes_.WriteTo(ref output, _repeated_routes_codec);
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          size += routes_.CalculateSize(_repeated_routes_codec);
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(RouteList other) {
-          if (other == null) {
-            return;
-          }
-          routes_.Add(other.routes_);
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
-            // Abort on any end group tag.
-            return;
-          }
-          switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 10: {
-                routes_.AddEntriesFrom(input, _repeated_routes_codec);
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
-            // Abort on any end group tag.
-            return;
-          }
-          switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 10: {
-                routes_.AddEntriesFrom(ref input, _repeated_routes_codec);
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-    }
-    #endregion
 
   }
 
